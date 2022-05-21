@@ -1,7 +1,7 @@
 import en_us from './en'
 import fa_ir from './fa'
 
-const lang = localStorage.getItem('lnag') ? localStorage.getItem('lang') : 'en'
+const lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en'
 export {lang}
 
 const direction = {
