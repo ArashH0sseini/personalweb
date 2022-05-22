@@ -6,14 +6,12 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import profileImage from '../assets/images/profile2.jpg'
+import profileImageLtr from '../assets/images/profile2.jpg'
+import profileImageRtl from '../assets/images/profile.jpg'
 import { Button } from '@mui/material'
 import { changeLanguage,getTranslate } from '../localization/index'
 
@@ -32,35 +30,41 @@ function ResponsiveDrawer(props) {
     <>
       <Toolbar className='bg-siderbarBg'>
         <div className='w-full p-5 border-b-[1px] border-solid border-borderColor text-center'>
-          <img src={profileImage} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
+          {
+            localStorage.getItem('lang')==="fa" ?  
+            <img src={profileImageRtl} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
+            :
+            <img src={profileImageLtr} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
+
+          }
         </div>
       </Toolbar>
       <List className='flex flex-col flex-1 bg-siderbarBg justify-center items-center'>
           <ListItem button>
-              <ListItemText disanableTypography 
+              <ListItemText
               children={<Typography variant='body2'>{translate.home}</Typography>} />
           </ListItem>
           <ListItem button>
-              <ListItemText disableTypography 
+              <ListItemText
               children={<Typography variant='body2'>{translate.about}</Typography>} />
           </ListItem>
           <ListItem button>
-              <ListItemText disableTypography 
+              <ListItemText
               children={<Typography variant='body2'>{translate.resume}</Typography>} />
           </ListItem>
           <ListItem button>
-              <ListItemText disableTypography 
+              <ListItemText
               children={<Typography variant='body2'>{translate.portfolios}</Typography>} />
           </ListItem>
           <ListItem button>
-              <ListItemText disableTypography 
+              <ListItemText
               children={<Typography variant='body2'>{translate.contact}</Typography>} />
           </ListItem>
       </List>
       <div className='p-4 border-t-[1px] border-solid border-borderColor bg-siderbarBg text-center'>
-        <Button className='font-vazir'>فارسی</Button>
+        <Button className='font-vazir text-white' onClick={()=>changeLanguage('fa')}>فارسی</Button>
         {'/'}
-        <Button>english</Button>
+        <Button className='text-white' onClick={()=>changeLanguage('en')}>english</Button>
       </div>
     </>
   );
@@ -71,6 +75,7 @@ function ResponsiveDrawer(props) {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
+      className='bg-[#10121b]'
         position="fixed"
         sx={{
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -87,9 +92,6 @@ function ResponsiveDrawer(props) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Responsive drawer
-          </Typography>
         </Toolbar>
       </AppBar>
       <Box
@@ -102,6 +104,7 @@ function ResponsiveDrawer(props) {
           container={container}
           variant="temporary"
           open={mobileOpen}
+          anchor={localStorage.getItem('lang')==="fa" ? "right" : 'left'}
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
