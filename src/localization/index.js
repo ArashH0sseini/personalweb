@@ -2,32 +2,42 @@ import en_us from './en'
 import fa_ir from './fa'
 
 const lang = localStorage.getItem('lang') ? localStorage.getItem('lang') : 'en'
-export {lang}
+export { lang }
 
 const direction = {
-    fa:'rtl',
-    en:'ltr'
+    fa: 'rtl',
+    en: 'ltr'
 }
 
-function getDirection(){
+function getDirection() {
     return direction[lang]
 }
-export {getDirection}
+export { getDirection }
 
 const fonts = {
-    fa:'Vazir',
-    en:'Muli'
+    fa: 'Vazir',
+    en: 'Muli'
 }
-function getFont(){
+function getFont() {
     return fonts[lang]
 }
-export {getFont}
+export { getFont }
 
 const translate = {
-    en:en_us,
-    fa:fa_ir
+    en: en_us,
+    fa: fa_ir
 }
-function getTranslate(){
+function getTranslate() {
     return translate[lang]
 }
-export {getTranslate}
+export { getTranslate }
+
+function changeLanguage(newLang) {
+    if (newLang === lang) {
+        return
+    }
+    localStorage.setItem('lang',newLang)
+    window.location.reload()
+}
+
+export {changeLanguage}

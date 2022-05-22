@@ -57,13 +57,18 @@ const theme = createTheme({
             fontFamily: getFont(),
             fontWeight: 400
         },
+        body2:{
+            fontSize: '.94rem',
+            color: '#a4acc4',
+            fontFamily: getFont(),
+            fontWeight: 600,
+            textAlign:'center'
+        },
         button: {
-            fontSize: '.9rem',
-            lineHeight: 50,
+            fontSize: '0.9rem',
             color: '#FFF',
             fontFamily: getFont(),
             fontWeight: 400,
-            letterSpacing: 2
         }
     }
 })
