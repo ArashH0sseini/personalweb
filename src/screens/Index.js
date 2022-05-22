@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,13 +14,21 @@ import Typography from '@mui/material/Typography';
 import profileImageLtr from '../assets/images/profile2.jpg'
 import profileImageRtl from '../assets/images/profile.jpg'
 import { Button } from '@mui/material'
-import { changeLanguage,getTranslate } from '../localization/index'
+import { changeLanguage, getTranslate, lang } from '../localization/index'
+import HomeScreen from './HomeScreen'
+import AboutScreen from './AboutScreen'
+import ResumeScreen from './ResumeScreen'
+import PortfolioScreen from './PortfolioScreen'
+import ContactScreen from './ContactScreen'
+import './index.css'
+
 
 const drawerWidth = 260;
 
 function ResponsiveDrawer(props) {
   const { window } = props;
-  const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [page, setPage] = useState(0)
   const translate = getTranslate()
 
   const handleDrawerToggle = () => {
@@ -31,70 +40,86 @@ function ResponsiveDrawer(props) {
       <Toolbar className='bg-siderbarBg'>
         <div className='w-full p-5 border-b-[1px] border-solid border-borderColor text-center'>
           {
-            localStorage.getItem('lang')==="fa" ?  
-            <img src={profileImageRtl} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
-            :
-            <img src={profileImageLtr} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
+            lang === "fa" ?
+              <img src={profileImageRtl} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
+              :
+              <img src={profileImageLtr} className="rounded-full w-52 h-52 max-w-full border-8 border-solid border-borderColor" alt={translate.name} />
 
           }
         </div>
       </Toolbar>
       <List className='flex flex-col flex-1 bg-siderbarBg justify-center items-center'>
-          <ListItem button>
-              <ListItemText
-              children={<Typography variant='body2'>{translate.home}</Typography>} />
-          </ListItem>
-          <ListItem button>
-              <ListItemText
-              children={<Typography variant='body2'>{translate.about}</Typography>} />
-          </ListItem>
-          <ListItem button>
-              <ListItemText
-              children={<Typography variant='body2'>{translate.resume}</Typography>} />
-          </ListItem>
-          <ListItem button>
-              <ListItemText
-              children={<Typography variant='body2'>{translate.portfolios}</Typography>} />
-          </ListItem>
-          <ListItem button>
-              <ListItemText
-              children={<Typography variant='body2'>{translate.contact}</Typography>} />
-          </ListItem>
+        <ListItem className={page === 0 ? null : 'listItem'} style={{ backgroundColor: page === 0 ? '#037fff' : 'transparent', color: '#fff', paddingLeft: 0,paddingRight:0 }}
+          onClick={() => { setPage(0); setMobileOpen(false) }} button>
+          <ListItemText
+            children={<Typography className='listItemText' style={{ color: page === 0 ? '#fff' : "#a4acc4" }} variant='body2'>{translate.home}</Typography>} />
+          <div className='overlay' />
+        </ListItem>
+        <ListItem className={page === 1 ? null : 'listItem'} style={{ backgroundColor: page === 1 ? '#037fff' : 'transparent', color: '#fff', paddingLeft: 0,paddingRight:0 }}
+          onClick={() => { setPage(1); setMobileOpen(false) }} button>
+          <ListItemText
+            children={<Typography className='listItemText' style={{ color: page === 1 ? '#fff' : "#a4acc4" }} variant='body2'>{translate.about}</Typography>} />
+          <div className='overlay' />
+        </ListItem>
+        <ListItem className={page === 2 ? null : 'listItem'} style={{ backgroundColor: page === 2 ? '#037fff' : 'transparent', color: '#fff', paddingLeft: 0,paddingRight:0 }}
+          onClick={() => { setPage(2); setMobileOpen(false) }} button>
+          <ListItemText
+            children={<Typography className='listItemText' style={{ color: page === 2 ? '#fff' : "#a4acc4" }} variant='body2'>{translate.resume}</Typography>} />
+          <div className='overlay' />
+        </ListItem>
+        <ListItem className={page === 3 ? null : 'listItem'} style={{ backgroundColor: page === 3 ? '#037fff' : 'transparent', color: '#fff', paddingLeft: 0,paddingRight:0 }}
+          onClick={() => { setPage(3); setMobileOpen(false) }} button>
+          <ListItemText
+            children={<Typography className='listItemText' style={{ color: page === 3 ? '#fff' : "#a4acc4" }} variant='body2'>{translate.portfolios}</Typography>} />
+          <div className='overlay' />
+        </ListItem>
+        <ListItem className={page === 4 ? null : 'listItem'} style={{ backgroundColor: page === 4 ? '#037fff' : 'transparent', color: '#fff', paddingLeft: 0,paddingRight:0 }}
+          onClick={() => { setPage(4); setMobileOpen(false) }} button>
+          <ListItemText
+            children={<Typography className='listItemText' style={{ color: page === 4 ? '#fff' : "#a4acc4" }} variant='body2'>{translate.contact}</Typography>} />
+          <div className='overlay' />
+        </ListItem>
       </List>
       <div className='p-4 border-t-[1px] border-solid border-borderColor bg-siderbarBg text-center'>
-        <Button className='font-vazir text-white' onClick={()=>changeLanguage('fa')}>فارسی</Button>
+        <Button color={lang === 'fa' ? 'primary' : 'secondary'} className='font-vazir' onClick={() => changeLanguage('fa')}>فارسی</Button>
         {'/'}
-        <Button className='text-white' onClick={()=>changeLanguage('en')}>english</Button>
+        <Button color={lang === 'en' ? 'primary' : 'secondary'} onClick={() => changeLanguage('en')}>english</Button>
       </div>
     </>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
 
+  const getPage = () => {
+    switch (page) {
+      case 0:
+        return <HomeScreen />
+      case 1:
+        return <AboutScreen />
+      case 2:
+        return <ResumeScreen />
+      case 3:
+        return <PortfolioScreen />
+      case 4:
+        return <ContactScreen />
+      default: <HomeScreen />
+        break;
+    }
+  }
+
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar
-      className='bg-[#10121b] shadow-none'
-        position="fixed"
-        sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
-          ml: { sm: `${drawerWidth}px` },
-        }}
+      <IconButton
+        className='m-1 w-12 h-12 bg-[#191d2b] border-[1px] border-solid border-[#2e344e] rounded-none top-5 fixed'
+        color="inherit"
+        aria-label="open drawer"
+        edge="start"
+        onClick={handleDrawerToggle}
+        sx={{ ml: 2, display: { sm: 'none' } }}
       >
-        <Toolbar>
-          <IconButton
-          className='m-1 w-12 h-12 bg-[#191d2b] border-[1px] border-solid border-[#2e344e] rounded-none absolute top-5'
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ ml: 2, display: { sm: 'none' } }}
-          >
-            <MenuIcon />
-          </IconButton>
-        </Toolbar>
-      </AppBar>
+        <MenuIcon />
+      </IconButton>
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -105,23 +130,24 @@ function ResponsiveDrawer(props) {
           container={container}
           variant="temporary"
           open={mobileOpen}
-          anchor={localStorage.getItem('lang')==="fa" ? "right" : 'left'}
+          anchor={localStorage.getItem('lang') === "fa" ? "right" : 'left'}
           onClose={handleDrawerToggle}
           ModalProps={{
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor:'#10121b' },
           }}
         >
           {drawer}
         </Drawer>
         <Drawer
           variant="permanent"
+          anchor={localStorage.getItem('lang') === "fa" ? "right" : 'left'}
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor:'#10121b' },
           }}
           open
         >
@@ -129,11 +155,15 @@ function ResponsiveDrawer(props) {
         </Drawer>
       </Box>
       <Box
+        className='text-center relative'
         component="main"
-        sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 1, pr: 3,pl:3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <Toolbar />
-        
+        <span className='w-[1px] min-h-screen bg-[rgba(46,52,87,0.3)] absolute left-[20%]'></span>
+        <span className='w-[1px] min-h-screen bg-[rgba(46,52,87,0.3)] absolute left-[40%]'></span>
+        <span className='w-[1px] min-h-screen bg-[rgba(46,52,87,0.3)] absolute left-[60%]'></span>
+        <span className='w-[1px] min-h-screen bg-[rgba(46,52,87,0.3)] absolute left-[80%]'></span>
+        {getPage()}
       </Box>
     </Box>
   );
