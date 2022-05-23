@@ -19,5 +19,10 @@ export default {
     iranian: 'ایرانی',
     persian: 'فارسی',
     english: 'انگلیسی',
-    DownloadCv:'دانلود رزومه'
+    DownloadCv:'دانلود رزومه',
+    WebDesign:'طراحی وب',
+    WebDevelopment:'کدنویسی وب',
+    WebApplication:'طراحی اپلیکیشن',
+    ServicesDesc:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.',
+    myskills:'مهارت های من'
 }

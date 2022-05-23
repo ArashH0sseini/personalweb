@@ -19,5 +19,11 @@ export default {
     iranian: 'Iranian',
     persian: 'Persian',
     english: 'English',
-    DownloadCv:'Download Cv'
+    DownloadCv:'Download Cv',
+    WebDesign:'Web Design',
+    WebDevelopment:'Web Development',
+    WebApplication:'Web Application',
+    ServicesDesc:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+    myskills:'MY SKILLS'
+
 }

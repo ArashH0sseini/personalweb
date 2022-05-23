@@ -32,19 +32,22 @@ const theme = createTheme({
             fontWeight: 600,
             fontSize: "1.71rem",
             lineHeight: '2.43rem',
-            fontFamily: getFont()
+            fontFamily: getFont(),
+            color:'#fff'
         },
         h5: {
             fontWeight: 600,
             fontSize: "1.43rem",
             lineHeight: '2.14rem',
-            fontFamily: getFont()
+            fontFamily: getFont(),
+            color:'#fff'
         },
         h6: {
             fontWeight: 600,
             fontSize: "1.14rem",
             lineHeight: '1.857rem',
-            fontFamily: getFont()
+            fontFamily: getFont(),
+            color:'#fff'
         },
         subtitle1: {
             fontWeight: 400,

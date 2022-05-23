@@ -27,7 +27,7 @@ const drawerWidth = 260;
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(2)
   const translate = getTranslate()
 
   const handleDrawerToggle = () => {
@@ -110,7 +110,7 @@ function ResponsiveDrawer(props) {
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <IconButton
-        className='m-1 w-12 h-12 bg-[#191d2b] border-[1px] border-solid border-[#2e344e] rounded-none top-5 fixed'
+        className='z-10 m-1 w-12 h-12 bg-[#191d2b] border-[1px] border-solid border-[#2e344e] rounded-none top-5 fixed'
         color="inherit"
         aria-label="open drawer"
         edge="start"

@@ -72,13 +72,13 @@ export default function AboutScreen() {
         <Grid container item direction='row'>
           <Services
             icon={<WebIcon color="action" className='text-primaryColor text-4xl' />}
-            title="Web Design" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut" />
+            title={translate.WebDesign} desc={translate.ServicesDesc} />
           <Services
             icon={<CodeIcon color="action" className='text-primaryColor text-4xl' />}
-            title="Web Development" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut" />
+            title={translate.WebDevelopment} desc={translate.ServicesDesc} />
           <Services
             icon={<PhoneAndroidIcon color="action" className='text-primaryColor text-4xl' />}
-            title="Web Application" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut" />
+            title={translate.WebApplication} desc={translate.ServicesDesc} />
         </Grid>
       </Grid>
     </Grid>
