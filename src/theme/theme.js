@@ -11,7 +11,8 @@ const theme = createTheme({
             fontWeight: 700,
             fontSize: "3.2857rem",
             lineHeight: '4rem',
-            fontFamily: getFont()
+            fontFamily: getFont(),
+            color:'#fff'
         },
         h2: {
             fontWeight: 700,

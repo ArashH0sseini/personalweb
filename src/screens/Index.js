@@ -137,7 +137,7 @@ function ResponsiveDrawer(props) {
           }}
           sx={{
             display: { xs: 'block', sm: 'none' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor:'#10121b' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor:'#2e344e' },
           }}
         >
           {drawer}
@@ -147,7 +147,7 @@ function ResponsiveDrawer(props) {
           anchor={localStorage.getItem('lang') === "fa" ? "right" : 'left'}
           sx={{
             display: { xs: 'none', sm: 'block' },
-            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor:'#10121b' },
+            '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth,backgroundColor:'#2e344e' },
           }}
           open
         >
