@@ -1,0 +1,53 @@
+.title{
+    text-align: left;
+}
+.title-rtl{
+    text-align: right;
+}
+.title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    height: 5px;
+    border-radius: 100px;
+    width: 35px;
+    background: #037fff;
+}
+
+.title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: auto;
+    bottom: 0;
+    height: 5px;
+    border-radius: 100px;
+    width: 100px;
+    background: rgba(3,127,255,0.3);
+}
+
+.title-rtl::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    height: 5px;
+    border-radius: 100px;
+    width: 35px;
+    background: #037fff;
+}
+
+.title-rtl::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    height: 5px;
+    border-radius: 100px;
+    width: 100px;
+    background: rgba(3,127,255,0.3);
+}

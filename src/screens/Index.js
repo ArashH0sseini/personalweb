@@ -28,7 +28,7 @@ const drawerWidth = 260;
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [page, setPage] = useState(0)
+  const [page, setPage] = useState(1)
   const translate = getTranslate()
 
   const handleDrawerToggle = () => {
@@ -157,7 +157,7 @@ function ResponsiveDrawer(props) {
       <Box
         className='text-center relative'
         component="main"
-        sx={{ flexGrow: 1, pr: 3,pl:3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+        sx={{ flexGrow: 1, pr: 3, pl:3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
         <span className='w-[1px] min-h-screen bg-[rgba(46,52,87,0.3)] absolute left-[20%]'></span>
         <span className='w-[1px] min-h-screen bg-[rgba(46,52,87,0.3)] absolute left-[40%]'></span>
