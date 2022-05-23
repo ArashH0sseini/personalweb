@@ -25,7 +25,8 @@ const theme = createTheme({
             fontWeight: 600,
             fontSize: "2rem",
             lineHeight: '2.7rem',
-            fontFamily: getFont()
+            fontFamily: getFont(),
+            color:'#fff'
         },
         h4: {
             fontWeight: 600,
@@ -53,11 +54,12 @@ const theme = createTheme({
             marginTop: 15
         },
         body1: {
-            fontSize: 18,
+            fontSize: getDirection() === 'rtl' ? 16 : 18,
             lineHeight: '1.8rem',
             color: '#a4acc4',
             fontFamily: getFont(),
-            fontWeight: 400
+            fontWeight: 400,
+            textAlign: getDirection() === 'rtl' ? 'justify' : 'left',
         },
         body2:{
             fontSize: '.94rem',

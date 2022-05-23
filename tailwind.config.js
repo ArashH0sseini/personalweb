@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'mdd' : '900px'
+      },
       colors:{
         borderColor : "#2e344e",
         siderbarBg:"#191d2b",
