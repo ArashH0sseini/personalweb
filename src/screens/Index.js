@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useState } from 'react'
-import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
@@ -159,10 +158,10 @@ function ResponsiveDrawer(props) {
         component="main"
         sx={{ flexGrow: 1, pr: 3, pl:3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-        <span className='w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[20%]'></span>
-        <span className='w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[40%]'></span>
-        <span className='w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[60%]'></span>
-        <span className='w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[80%]'></span>
+        <span className='-z-10 w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[20%]'></span>
+        <span className='-z-10 w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[40%]'></span>
+        <span className='-z-10 w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[60%]'></span>
+        <span className='-z-10 w-[1px] min-h-full bg-[rgba(46,52,87,0.3)] absolute left-[80%]'></span>
         {getPage()}
       </Box>
     </Box>
