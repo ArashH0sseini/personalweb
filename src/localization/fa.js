@@ -24,5 +24,30 @@ export default {
     WebDevelopment:'کدنویسی وب',
     WebApplication:'طراحی اپلیکیشن',
     ServicesDesc:'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.',
-    myskills:'مهارت های من'
+    myskills:'مهارت های من',
+    workingSteps: [
+        {id: -1,date: '',title: '',subtitle: '',content: '',},
+        {id: 0,date: '2018-2019',title: "فریلنسری",subtitle: 'آزاد', content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است'},
+        {id: 1,date: '2020-2019',title: "Masof Science",subtitle: 'Abc University',content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است'},
+        {id: -2,date: '',title: '',subtitle: '',content: '',},
+      ],
+      educationalSteps: [
+        {id: -1,date: '',title: '',subtitle: '',content: '',},
+        {id: 0,date: '1396-1398',title: "کاردانی نرم افزار",subtitle: 'دانشگاه فنی چمران کرمان', content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است'},
+        {id: 1,date: '1399-1401',title: "کارشناسی مهندسی تکنولوژی نرم افزار",subtitle: 'دانشگاه فنی چمران کرمان', content: 'لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است'},
+        {id: -2,date: '',title: '',subtitle: '',content: '',},
+      ],
+      WorkingExperience:"تجربه کاری",
+      EducationalQualifications:'مدارک تحصیلی',
+      contactme:'ارتباط با من',
+      send:'ارسال اطلاعات',
+      enteryourname:'نام خود را وارد کنید',
+      enteryouremail:'ایمیل خود را وارد کنید',
+      enteryoursubject:'موضوع را وارد کنید',
+      enteryourmessage:'پیام خود را بنویسید',
+      GetInTouch:'فرم تماس با من',
+      address:'آدرس',
+      email:'ایمیل',
+      phone:'شماره تماس',
+      
 }

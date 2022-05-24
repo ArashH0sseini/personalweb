@@ -1,0 +1,9 @@
+.stepconnector {
+    
+}
+
+.stepconnector span {
+    border-color: #2e344e;
+    border-left-style: solid;
+    border-left-width: 3px;
+}

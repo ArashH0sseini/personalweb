@@ -4,92 +4,39 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
-import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
+import { StepConnector } from '@mui/material';
+import { lang } from '../localization/index'
+import './MyStepper.css';
 
-const steps = [
-  {
-    label: 'Select campaign settings',
-    description: `For each ad campaign that you create, you can control how much
-              you're willing to spend on clicks and conversions, which networks
-              and geographical locations you want your ads to show on, and more.`,
-  },
-  {
-    label: 'Create an ad group',
-    description:
-      'An ad group contains one or more ads which target a shared set of keywords.',
-  },
-  {
-    label: 'Create an ad',
-    description: `Try out different ad text to see what brings in the most customers,
-              and learn how to enhance your ads using features like ad extensions.
-              If you run into any problems with your ads, find out how to tell if
-              they're running and how to resolve approval issues.`,
-  },
-];
-
-export default function VerticalLinearStepper() {
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
+export default function MyStepper({steps}) {
   return (
-    <Box sx={{ maxWidth: 400 }}>
-      <Stepper activeStep={activeStep} orientation="vertical">
-        {steps.map((step, index) => (
-          <Step key={step.label}>
-            <StepLabel
-              optional={
-                index === 2 ? (
-                  <Typography variant="caption">Last step</Typography>
-                ) : null
-              }
-            >
-              {step.label}
+    <Box className='w-full'>
+      <Stepper className="items-start" connector={<StepConnector className='stepconnector' />} orientation="vertical">
+        {steps.map((step) => step.id >= 0 ? (
+          <Step active={true} key={step.id}>
+            <StepLabel classes={{ label: ' flex flex-col justify-center items-start sm:flex-row sm:justify-start sm:items-center px-0' }} className='p-0' icon={<span className='w-4 h-4 rounded-full border-[5px] border-solid border-borderColor mx-[5px] px-0' />} >
+              <Typography className={lang === 'fa' ? 'w-52 text-right' : 'w-52 text-left'} variant='h6'>{step.date}</Typography>
+              <span className='hidden sm:block w-8 h-[1px] bg-borderColor mx-4 px-0'></span>
+              <Typography className='text-primaryColor ' variant='h5'>{step.title}</Typography>
             </StepLabel>
-            <StepContent>
-              <Typography>{step.description}</Typography>
-              <Box sx={{ mb: 2 }}>
-                <div>
-                  <Button
-                    variant="contained"
-                    onClick={handleNext}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
-                  </Button>
-                  <Button
-                    disabled={index === 0}
-                    onClick={handleBack}
-                    sx={{ mt: 1, mr: 1 }}
-                  >
-                    Back
-                  </Button>
+            <StepContent className='border-l-[3px] border-l-solid border-l-borderColor mt-0'>
+              <div className='flex pt-4'>
+                <div className={lang==='fa'? 'hidden sm:block w-[295px]': 'hidden sm:block w-[275px]'}></div>
+                <div className='flex flex-1 flex-col justify-start items-start'>
+                  <Typography variant='h6'>{step.subtitle}</Typography>
+                  <Typography variant='body1'>{step.content}</Typography>
                 </div>
-              </Box>
+              </div>
             </StepContent>
           </Step>
-        ))}
+        ) : step.id === -1 || -2 ? (
+          <Step active={true} key={step.id}>
+            <StepLabel icon={<span className='bg-white px-0' />} ></StepLabel>
+          </Step>
+        ) : (null)
+        )}
       </Stepper>
-      {activeStep === steps.length && (
-        <Paper square elevation={0} sx={{ p: 3 }}>
-          <Typography>All steps completed - you&apos;re finished</Typography>
-          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
-            Reset
-          </Button>
-        </Paper>
-      )}
     </Box>
   );
 }

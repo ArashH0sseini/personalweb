@@ -22,7 +22,6 @@ export default function AboutScreen() {
                 <img src={MainImageRtl} className='w-full' alt={translate.name} />
                 :
                 <img src={MainImage} className='w-full' alt={translate.name} />
-
             }
           </Grid>
           <Grid item xs={12} md={6} className={lang === 'fa' ? 'my-4 md:my-0 mdd:px-10 text-right' : 'my-4 md:my-0 mdd:px-5 text-left'}>

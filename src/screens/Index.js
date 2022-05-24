@@ -27,7 +27,7 @@ const drawerWidth = 260;
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [page, setPage] = useState(2)
+  const [page, setPage] = useState(0)
   const translate = getTranslate()
 
   const handleDrawerToggle = () => {

@@ -11,7 +11,7 @@ export default function ResumeScreen() {
   const translate = getTranslate()
   return (
     <Grid justify="flex-start" alignItems='flex-start' container className="min-h-screen">
-      <Grid className='px-8 pt-16 w-full' item container xs={12}>
+      <Grid className='px-[5px] sm:px-8 pt-16 w-full' item container xs={12}>
         <Title title={translate.myskills} />
         <Grid container item direction='row'>
           <Grid item xs={12} md={6} className="z-10">
@@ -26,9 +26,27 @@ export default function ResumeScreen() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid className='px-8 pt-16 w-full mb-10' item container xs={12}>
+      <Grid className='px-[5px] sm:px-8 pt-16 w-full mb-10' item container xs={12}>
         <Title title={translate.resume} />
-        
+        <Grid container item direction='row' justify="flex-start" alignItems="center">
+          <BusinessCenterIcon className='text-3xl' />
+          <Typography className='mx-3' variant='h4'>
+            {translate.WorkingExperience}
+          </Typography>
+        </Grid>
+        <Grid container className='my-4'>
+          <MyStepper steps={translate.workingSteps} />
+        </Grid>
+
+        <Grid container item direction='row' justify="flex-start" alignItems="center">
+          <LocalLibraryIcon className='text-3xl' />
+          <Typography className='mx-3' variant='h4'>
+            {translate.EducationalQualifications}
+          </Typography>
+        </Grid>
+        <Grid container className='my-4'>
+          <MyStepper steps={translate.educationalSteps} />
+        </Grid>
       </Grid>
     </Grid>
   )
