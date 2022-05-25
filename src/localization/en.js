@@ -56,6 +56,12 @@ export default {
       GetInTouch:'Get In Touch',
       address:'Address',
       email:'Email',
-      phone:'Phone'
+      phone:'Phone',
+      portfoliosList: [
+        { id: 1, title: "react js", subtitle: 'react js teacher', image:"https://api.reactdeveloper.ir/storage/course-images/RkA4kZcPj4UN42n4HeAqy9ehgWiHFMrvg42eqHHN.png" },
+        { id: 2, title: "vue js", subtitle: 'vue js teacher', image:"https://api.reactdeveloper.ir/storage/course-images/emRfF8q6cEBjFMw1qgxDIqTAvNZpagOXcVDAOEHY.png" },
+        { id: 3, title: "laravel", subtitle: 'laravel teacher', image:"https://api.reactdeveloper.ir/storage/course-images/6MShDiAgz3cM8iQSz7xGksEqfunHRX5EusyJb9f9.png" },
+        { id: 4, title: "node js", subtitle: 'node js teacher', image:"https://api.reactdeveloper.ir/storage/course-images/nXsRhMI0QVEhkOJhef9Cl6pqLPraB7iJoGtQGOmn.png" },
+      ]
 
 }

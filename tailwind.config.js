@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      ringWidth: {
+        '10': '10px',
+      },
       screens: {
         'mdd' : '900px'
       },
