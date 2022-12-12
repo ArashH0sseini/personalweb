@@ -22,12 +22,12 @@ export default function Portfolio({ title, subtitle, href, image }) {
     };
     return (
         <>
-            <Grid item lg={4} className="p-4 flex flex-col  w-full mb-4">
+            <Grid item lg={4} className="p-4 flex flex-col w-full mb-4">
                 <div className='relative group'>
                     <img className='w-full cursor-pointer transition-all delay-50 ease-in group-hover:opacity-20 group-hover:outline outline-offset-4 outline-2 ' src={image} alt="ReactDeveloper" />
                     <div className='opacity-0 transition-all delay-50 ease-in absolute top-1/2 left-1/2 text-center -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100'>
                         <div className='bg-gray-400 text-white text-base px-2 py-2 rounded-full'>
-                            <ZoomOutMap className='text-3xl' onClick={handleOpen} />
+                            <ZoomOutMap className='text-3xl cursor-pointer' onClick={handleOpen} />
                         </div>
                     </div>
                 </div>
